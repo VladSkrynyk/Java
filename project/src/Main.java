@@ -1,5 +1,7 @@
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+
+import commands.Cmd1;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
@@ -60,16 +62,40 @@ public class Main {
         }
     }
 
+    public static void test2() {
+        try {
+            // Create a ProcessBuilder for the system command
+            ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "ls");
+
+            // Start the process
+            Process process = processBuilder.start();
+
+            // Read the output of the command
+            java.io.InputStream is = process.getInputStream();
+            java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+            String output = s.hasNext() ? s.next() : "";
+
+            // Print the output
+            System.out.println("Command output:");
+            System.out.println(output);
+
+            // Wait for the process to complete
+            process.waitFor();
+
+            // Get the exit code
+            int exitCode = process.exitValue();
+            System.out.println("Exit Code: " + exitCode);
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String args[]) {
         // test();
 
-        Process process = null;
-        try {
-            System.out.println(Arrays.toString(args));
-            process = Runtime.getRuntime().exec("ls");
-        } catch (IOException e) {
+        // test2();
 
-            e.printStackTrace();
-        }
+        Cmd1.runWithDelay();
     }
 }

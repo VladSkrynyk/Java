@@ -1,16 +1,14 @@
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
-import commands.Cmd1;
+import commands.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 
-//import commands.*;
 
 public class Main {
     public static void test() {
@@ -97,5 +95,6 @@ public class Main {
         // test2();
 
         Cmd1.runWithDelay();
+
     }
 }

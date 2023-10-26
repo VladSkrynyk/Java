@@ -94,7 +94,8 @@ public class Main {
 
         // test2();
 
-        Cmd1.runWithDelay();
-
+        // Cmd1.runWithDelay();
+        // Cmd1.createFile();
+        Cmd1.writeFile();
     }
 }

@@ -1,18 +1,19 @@
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
-import commands.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 
 public class Main {
     public static void test() {
         try {
+
             File fXmlFile = new File("d:/study/3 course/1 sem/java/project/Java/project/src/data/test.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -61,41 +62,22 @@ public class Main {
     }
 
     public static void test2() {
-        try {
-            // Create a ProcessBuilder for the system command
-            ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "ls");
 
-            // Start the process
-            Process process = processBuilder.start();
-
-            // Read the output of the command
-            java.io.InputStream is = process.getInputStream();
-            java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
-            String output = s.hasNext() ? s.next() : "";
-
-            // Print the output
-            System.out.println("Command output:");
-            System.out.println(output);
-
-            // Wait for the process to complete
-            process.waitFor();
-
-            // Get the exit code
-            int exitCode = process.exitValue();
-            System.out.println("Exit Code: " + exitCode);
-
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void main(String args[]) {
-        // test();
 
-        // test2();
+        if (args.length <= 1)
+            System.out.println("Неправильний ввід\nПриклад: Ім'я програми аргумент1 аргумент2");
 
-        // Cmd1.runWithDelay();
-        // Cmd1.createFile();
-        Cmd1.writeFile();
+        if (args[0].equals("command1")) {
+
+            String cmd1Args[] = Arrays.copyOfRange(args, 1, args.length);
+            int result = TestCommand1.test(cmd1Args);
+            System.out.println(result);
+
+            if (result == 0)
+                System.out.println("Програма виконалась успішно success");
+        }
     }
 }

@@ -5,6 +5,34 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Cmd1 {
+    public static void mainProgramme() {
+        try {
+            // Create a ProcessBuilder for the system command
+            ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "ls");
+
+            // Start the process
+            Process process = processBuilder.start();
+
+            // Read the output of the command
+            java.io.InputStream is = process.getInputStream();
+            java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+            String output = s.hasNext() ? s.next() : "";
+
+            // Print the output
+            System.out.println("Command output:");
+            System.out.println(output);
+
+            // Wait for the process to complete
+            process.waitFor();
+
+            // Get the exit code
+            int exitCode = process.exitValue();
+            System.out.println("Exit Code: " + exitCode);
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public static void main(String args[]) {
         System.out.println("Start programme 1\nparameters: " + Arrays.toString(args));
     }

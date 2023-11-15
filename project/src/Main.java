@@ -79,5 +79,12 @@ public class Main {
             if (result == 0)
                 System.out.println("Програма виконалась успішно success");
         }
+        else if (args[0].equals("command2")) {
+            String cmd1Args[] = Arrays.copyOfRange(args, 1, args.length);
+            System.out.println("start");
+            TestCommand2.test(cmd1Args[0], cmd1Args[3], cmd1Args[1]);
+
+            System.out.println("end");
+        }
     }
 }

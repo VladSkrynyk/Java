@@ -1,6 +1,7 @@
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
+import commands.Cmd3;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
@@ -67,7 +68,8 @@ public class Main {
 
     public static void main(String args[]) {
 
-        if (args.length <= 1)
+
+         if (args.length == 1)
             System.out.println("Неправильний ввід\nПриклад: Ім'я програми аргумент1 аргумент2");
 
         if (args[0].equals("command1")) {
@@ -85,6 +87,10 @@ public class Main {
             TestCommand2.test(cmd1Args[0], cmd1Args[3], cmd1Args[1]);
 
             System.out.println("end");
+        }
+        else if(args[0].equals("command3")) {
+            String cmd3Args[] = Arrays.copyOfRange(args, 1, args.length);
+            TestCommand3.test(cmd3Args);
         }
     }
 }

@@ -11,6 +11,8 @@ class CustomException extends Exception {
     public String toString() {
         return "Error: " + getMessage();
     }
+
+    public static void main(String args[]) {}
 }
 
 public class TestCommand2 {
@@ -49,5 +51,6 @@ public class TestCommand2 {
             System.out.println(e.getMessage());
         }
     }
+
 }
 

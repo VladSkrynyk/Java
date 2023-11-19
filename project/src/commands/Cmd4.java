@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class EchoClient {
+public class Cmd4 {
     private static final int PORT = 12345;
     private static List<ConnectedClient> connectedClients = new ArrayList<>();
 

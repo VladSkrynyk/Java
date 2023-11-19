@@ -1,20 +1,17 @@
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
-import commands.Cmd3;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
 
 
 public class Main {
     public static void test() {
         try {
-
             File fXmlFile = new File("d:/study/3 course/1 sem/java/project/Java/project/src/data/test.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -62,14 +59,10 @@ public class Main {
         }
     }
 
-    public static void test2() {
-
-    }
-
     public static void main(String args[]) {
 
 
-         if (args.length == 1)
+         if ((args.length == 1) && (args[0].equals("command1")))
             System.out.println("Неправильний ввід\nПриклад: Ім'я програми аргумент1 аргумент2");
 
         if (args[0].equals("command1")) {
@@ -79,18 +72,25 @@ public class Main {
             System.out.println(result);
 
             if (result == 0)
-                System.out.println("Програма виконалась успішно success");
+                System.out.println("Програма виконалась успішно");
         }
         else if (args[0].equals("command2")) {
             String cmd1Args[] = Arrays.copyOfRange(args, 1, args.length);
-            System.out.println("start");
-            TestCommand2.test(cmd1Args[0], cmd1Args[3], cmd1Args[1]);
 
-            System.out.println("end");
+            TestCommand2.test(cmd1Args[0], cmd1Args[3], cmd1Args[1]);
         }
         else if(args[0].equals("command3")) {
             String cmd3Args[] = Arrays.copyOfRange(args, 1, args.length);
+
             TestCommand3.test(cmd3Args);
+        }
+        else if (args[0].equals("command4")) {
+            String cmd4Args[] = Arrays.copyOfRange(args, 1, args.length);
+
+            TestCommand4.test(cmd4Args);
+        }
+        else {
+            System.out.println("Неправильний ввід\nДоступні команди: command1, command2, command3, command4");
         }
     }
 }

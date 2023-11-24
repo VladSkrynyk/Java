@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<programme>
+    <runprog id="0001">
+        <commandname>cmd1</commandname>
+        <parameter1>ls</parameter1>
+    </runprog>
+    <runprog id="0002">
+        <commandname>cmd2</commandname>
+        <parameter1>1</parameter1>
+        <parameter2>0</parameter2>
+        <parameter3>||</parameter3>
+    </runprog>
+    <runprog id="0003">
+        <commandname>cmd33</commandname>
+        <parameter1>f.txt</parameter1>
+        <parameter2>s.txt</parameter2>
+        <parameter3>t.txt</parameter3>
+    </runprog>
+    <runprog id="0004">
+        <commandname>cmd4</commandname>
+        <parameter1>1</parameter1>
+    </runprog>
+</programme>
